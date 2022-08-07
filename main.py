@@ -52,6 +52,8 @@ wm = WeChatMessage(client)
 wea, temperature = get_weather()
 
 weather_remark="今天天气很好，出门可以愉快玩耍"
+if wea.__contains__("多云"):
+  weather_remark="今天天上很多棉花糖，适合去野外看风景"
 if wea.__contains__("阴"):
   weather_remark="今天天气阴，出门小心下雨"
 if wea.__contains__("雨"):
