@@ -50,7 +50,14 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+
+weather_remark="今天天气很好，出门可以愉快玩耍"
+if wea.__contains__("阴"):
+  weather_remark="今天天气阴，出门小心下雨"
+if wea.__contains__("雨"):
+  weather_remark="今天可能下雨，出门记得带伞哦"
+  
+data = {"city":{"value":city},"weather_remark":{"value":weather_remark},"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 resw = wm.send_template(userwu_id, template_id, data)
 resxw = wm.send_template(userxiuwu_id, template_id, data)
