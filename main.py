@@ -59,7 +59,7 @@ if wea.__contains__("阴"):
 if wea.__contains__("雨"):
   weather_remark="今天可能下雨，出门记得带伞哦"
 if wea.__contains__("雷阵雨"):
-  weather_remark="今天就不要出门啦，合法宅在家里٩(˃̶͈̀௰˂̶͈́)و！"
+  weather_remark="今天就不要出门啦，合法宅在家里♪(´ε｀ )！"
   
 data = {"city":{"value":city},"weather_remark":{"value":weather_remark},"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
