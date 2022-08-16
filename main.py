@@ -58,6 +58,8 @@ if wea.__contains__("阴"):
   weather_remark="今天天气阴，出门小心下雨( ･᷄ὢ･᷅ )"
 if wea.__contains__("雨"):
   weather_remark="今天可能下雨，出门记得带伞哦(｡ ́︿ ̀｡)"
+if wea.__contains__("大雨"):
+  weather_remark="今天出門的話要注意看路上的水坑喔，不要貪玩！ಠ_ಠ"
 if wea.__contains__("雷阵雨"):
   weather_remark="今天就不要出门啦，合法宅在家里♪(´ε｀ )！"
   
