@@ -63,7 +63,7 @@ if wea.__contains__("大雨"):
 if wea.__contains__("雷阵雨"):
   weather_remark="今天就不要出门啦，合法宅在家里♪(´ε｀ )！"
   
-data = {"date":{"value":wea,"color":get_random_color()},"weather":{"value":wea,"color":get_random_color()},"weather_remark":{"value":weather_remark,"color":get_random_color()},"temperature":{"value":temperature,"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(),"color":get_random_color()},"highest": {"value":highest,"color":get_random_color()},"lowest":{"value":lowest, "color":get_random_color()}}
+data = {"date":{"value":today,"color":get_random_color()},"weather":{"value":wea,"color":get_random_color()},"weather_remark":{"value":weather_remark,"color":get_random_color()},"temperature":{"value":temperature,"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(),"color":get_random_color()},"highest": {"value":highest,"color":get_random_color()},"lowest":{"value":lowest, "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 #resw = wm.send_template(userwu_id, template_id, data)
 #resxw = wm.send_template(userxiuwu_id, template_id, data)
