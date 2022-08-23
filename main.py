@@ -24,7 +24,7 @@ def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
-  return weather['weather'], math.floor(weather['temp'])
+  return weather['weather'], math.floor(weather['temp']), math.floor(weather['high']), math.floor(weather['low'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -49,7 +49,7 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature = get_weather()
+wea, temperature, highest, lowest = get_weather()
 
 weather_remark="今天天气很好，出门可以愉快玩耍٩(˃̶͈̀௰˂̶͈́)و"
 if wea.__contains__("多云"):
@@ -63,10 +63,10 @@ if wea.__contains__("大雨"):
 if wea.__contains__("雷阵雨"):
   weather_remark="今天就不要出门啦，合法宅在家里♪(´ε｀ )！"
   
-data = {"city":{"value":city},"weather_remark":{"value":weather_remark},"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {"date":{"value":wea,"color":get_random_color()},"weather":{"value":wea,"color":get_random_color()},"temperature":{"value":temperature,"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(),"color":get_random_color()},"highest": {"value":highest,"color":get_random_color()},"lowest":{"value":lowest, "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
-resw = wm.send_template(userwu_id, template_id, data)
-resxw = wm.send_template(userxiuwu_id, template_id, data)
+#resw = wm.send_template(userwu_id, template_id, data)
+#resxw = wm.send_template(userxiuwu_id, template_id, data)
 print(res)
-print(resw)
-print(resxw)
+#print(resw)
+#print(resxw)
